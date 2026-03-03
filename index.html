@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Toronto DineSafe Map</title>
+
+  <!-- mapbox GL JS -->
+    <script src='https://api.mapbox.com/mapbox-gl-js/v3.18.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v3.18.1/mapbox-gl.css' rel='stylesheet' />
+    <!-- mapbox geocoder plugin -->
+    <script
+        src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.1.0/mapbox-gl-geocoder.min.js"></script>
+    <link rel="stylesheet"
+        href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.1.0/mapbox-gl-geocoder.css"
+        type="text/css">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- MAP container -->
+     <div id="map"></div>
+
+     <!-- SIDEBAR -->
+      <div id="sidebar">
+    <div>
+      <h1>🍔 Toronto DineSafe</h1>
+      <p class="subtitle">Restaurant inspection results across Toronto</p>
+    </div>
+
+    <!-- Filter buttons: each one filters the map layer by inspection status -->
+    <div class="filter-group">
+      <label>Filter by Status</label>
+      <button class="filter-btn" id="btn-all">
+        <span class="dot" style="background:#aaa"></span> Show All
+      </button>
+      <button class="filter-btn" id="btn-pass">
+        <span class="dot" style="background:#4caf50"></span> Pass
+      </button>
+      <button class="filter-btn" id="btn-cond">
+        <span class="dot" style="background:#ff9800"></span> Conditional Pass
+      </button>
+      <button class="filter-btn" id="btn-closed">
+        <span class="dot" style="background:#ef5350"></span> Closed
+      </button>
+    </div>
+
+    <!-- Legend -->
+    <div class="legend">
+      <label>Legend</label>
+      <div class="legend-item">
+        <div class="legend-dot" style="background:#4caf50"></div> Pass
+      </div>
+      <div class="legend-item">
+        <div class="legend-dot" style="background:#ff9800"></div> Conditional Pass
+      </div>
+      <div class="legend-item">
+        <div class="legend-dot" style="background:#ef5350"></div> Closed
+      </div>
+    </div>
+
+    <!-- Info box -->
+    <div id="info">Hover over a restaurant to see details.</div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,180 @@
+/* ──────────────────────────────────────
+   Reset & layout
+────────────────────────────────────── */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* ──────────────────────────────────────
+   Sidebar
+────────────────────────────────────── */
+#sidebar {
+  width: 240px;
+  background: #1a1a2e;
+  color: #eee;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 16px;
+  gap: 20px;
+  z-index: 10;
+  flex-shrink: 0;
+}
+
+#sidebar h1 {
+  font-size: 16px;
+  color: #fff;
+  line-height: 1.4;
+}
+
+#sidebar p.subtitle {
+  font-size: 12px;
+  color: #aaa;
+  margin-top: 4px;
+}
+
+/* ── Filter buttons ── */
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.filter-group label,
+.legend label {
+  font-size: 12px;
+  color: #aaa;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.filter-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: bold;
+  color: #fff;
+  transition: opacity 0.2s, transform 0.1s;
+}
+
+.filter-btn:hover {
+  opacity: 0.85;
+  transform: translateX(2px);
+}
+
+/* Dimmed state when not active */
+.filter-btn.inactive {
+  opacity: 0.35;
+}
+
+.filter-btn .dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+#btn-all    { background: #444; }
+#btn-pass   { background: #2e7d32; }
+#btn-cond   { background: #f57c00; }
+#btn-closed { background: #c62828; }
+
+/* ── Legend ── */
+.legend {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+}
+
+.legend-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ── Hover info box ── */
+#info {
+  margin-top: auto;
+  background: #16213e;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 12px;
+  color: #ccc;
+  min-height: 80px;
+  line-height: 1.7;
+}
+
+#info strong {
+  color: #fff;
+  font-size: 13px;
+  display: block;
+  margin-bottom: 2px;
+}
+
+/* ──────────────────────────────────────
+   Map
+────────────────────────────────────── */
+#map {
+  flex: 1;
+}
+
+/* ──────────────────────────────────────
+   Mapbox Popup
+────────────────────────────────────── */
+.mapboxgl-popup-content {
+  background: #1a1a2e;
+  color: #eee;
+  border-radius: 8px;
+  padding: 14px 16px;
+  font-size: 13px;
+  line-height: 1.7;
+  max-width: 240px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.mapboxgl-popup-content strong {
+  color: #fff;
+  font-size: 14px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* Arrow tip colour matches popup background */
+.mapboxgl-popup-tip {
+  border-top-color: #1a1a2e !important;
+}
+
+/* Status badge inside popup */
+.status-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: bold;
+  margin: 4px 0;
+}
+
+.badge-pass   { background: #2e7d32; color: #fff; }
+.badge-cond   { background: #f57c00; color: #fff; }
+.badge-closed { background: #c62828; color: #fff; }
